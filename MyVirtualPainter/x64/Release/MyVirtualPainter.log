@@ -1,0 +1,10 @@
+﻿  cvBase.cpp
+F:\WEI_WORK\CVworks\MyVirtualPainter\MyVirtualPainter\cvBase.cpp(69,21): warning C4305: “+=”: 从“double”到“float”截断
+F:\WEI_WORK\CVworks\MyVirtualPainter\MyVirtualPainter\cvBase.cpp(73,21): warning C4305: “-=”: 从“double”到“float”截断
+F:\WEI_WORK\CVworks\MyVirtualPainter\MyVirtualPainter\cvBase.cpp(74,27): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+  正在生成代码
+  0 of 293 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  MyVirtualPainter.vcxproj -> F:\WEI_WORK\CVworks\MyVirtualPainter\x64\Release\MyVirtualPainter.exe

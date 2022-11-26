@@ -1,0 +1,2 @@
+﻿main.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::imshow(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class cv::debug_build_guard::_InputArray const &)" (?imshow@cv@@YAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV_InputArray@debug_build_guard@1@@Z)，函数 main 中引用了该符号
+F:\WEI_WORK\CVworks\MyVirtualPainter\x64\Debug\MyVirtualPainter.exe : fatal error LNK1120: 1 个无法解析的外部命令
