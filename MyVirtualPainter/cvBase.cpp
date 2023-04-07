@@ -1,9 +1,9 @@
 #include "VirtualPainter.h"
 #include "cvBase.h"
 
-int H_min = 28,   H_max = 138;
-int S_min = 115,  S_max = 214;
-int V_min = 114,  V_max = 255;
+int H_min = 0,   H_max = 141;
+int S_min = 113,  S_max = 223;
+int V_min = 158,  V_max = 199;
 
 //默认缩放2.0
 float resizeNum = 1.5;
@@ -24,6 +24,8 @@ void TrackBar(Mat& image)
 	createTrackbar("红色分量：", "跟踪条", &myRed, 255);
 
 	createTrackbar("墨汁大小：", "跟踪条", &inkSize, 25);
+
+	createTrackbar("灵敏度(越小越灵敏)", "跟踪条", &minArea, 300);
 }
 
 

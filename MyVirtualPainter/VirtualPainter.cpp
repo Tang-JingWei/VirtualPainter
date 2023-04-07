@@ -4,6 +4,9 @@
 //墨汁大小 默认 <10>大小
 int inkSize = 15;
 
+//检测色块灵敏度（轮廓包围的面积最小值判断，默认200）
+int minArea = 200;
+
 //混合颜色分量，默认 <红色>画笔
 int myBlue = 0, myGreen = 0, myRed = 255; 
 
@@ -24,7 +27,7 @@ vector<vector<int>> erasePoints;
 //寻找颜色
 void findColors(Mat img)
 {
-	Mat imgHSV, imgBlur, imgCanny, imgDilate, imgCopy = img.clone();
+	Mat imgHSV, imgBlur, imgCanny, imgDilate, imgCopy = img.clone(), imgCopy2 = img.clone();
 	Mat mask; //双阈值化图像
 	Mat kernel; 
 	vector<vector<Point> > contours;
@@ -61,12 +64,13 @@ void findColors(Mat img)
 	for (int j = 0; j < contours.size(); j++)
 	{
 		//cout << "面积为：" << contourArea(contours[j]) << endl;
-		if (contourArea(contours[j]) >= 200)
+		if (contourArea(contours[j]) >= minArea)
 		{
 			double contourLength = arcLength(contours[j], 1); //第 j 个轮廓的长度
+			drawContours(imgCopy2, contours, j, Scalar(0, 125, 125), 2);
 			approxPolyDP(contours[j], approxCurve[j], 0.03 * contourLength, 1); //Douglas-Peucker算法
 			drawContours(imgCopy, approxCurve, j, Scalar(0, 255, 255), 2);
-			Rect bounding = boundingRect(approxCurve[j]);	// 获得包含第 j 个轮廓的最小矩形
+			Rect bounding = boundingRect(approxCurve[j]);	// 获得包含第 j 个轮廓的最小包围矩形
 			rectangle(imgCopy, bounding, Scalar(0,0,255), 3);
 
 			myPoints.push_back({ bounding.x + bounding.width / 2, bounding.y});
@@ -76,8 +80,7 @@ void findColors(Mat img)
 	//imshow("高斯模糊", imgBlur);
 	//imshow("Canny边缘检测", imgCanny);
 	//imshow("膨胀", imgDilate);
-	//imshow("形状", img);
-	//imshow("轮廓筛选", imgCopy);
+	//imshow("轮廓筛选", imgCopy2);
 	//imshow("最小矩形包含", imgCopy);
 }
 

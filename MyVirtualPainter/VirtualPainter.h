@@ -13,7 +13,7 @@ extern int threshold_enbale; //双阈值图显示使能
 extern vector<vector<int>> myPoints;
 extern int myBlue, myGreen, myRed; //混合颜色分量
 extern int inkSize; //墨汁大小
-
+extern int minArea;
 
 
 void Painter();
